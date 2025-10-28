@@ -1,0 +1,29 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://github.com/skim-rs/skim
+Upstream-Name: skim
+Upstream-Contact:
+ Zhang Jinzhou <lotabout@gmail.com>
+ Loric Andre
+Files-Excluded: .cargo/*  shell/completion.bash shell/completion.fish shell/completion.zsh
+Comment: Excluded to not mess with our tooling; rebuild completions from source
+
+Files: *
+Copyright:
+ 2019-2025 Zhang Jinzhou <lotabout@gmail.com>
+ 2019-2025 Loric Andre
+License: MIT
+
+Files: bin/sk-tmux
+ man/man1/sk-tmux.1
+ shell/LICENSE
+Copyright: 2016, 2016 Jinzhou Zhang
+  2016,2017 Junegunn Choi
+License: Expat
+
+Files: plugin/skim.vim
+Copyright: 2017 Junegunn Choi
+License: Expat
+
+Files: debian/*
+Copyright: 2025 Matthias Geiger <werdahias@debian.org>
+License: MIT

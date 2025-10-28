@@ -1,0 +1,52 @@
+Description: Update code for nix 0.30
+Author: Ermakov Alexander <ermakovav@altgtu.ru>
+Forwarded: no
+Last-Update: 2025-10-27
+
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -29,7 +29,7 @@ fuzzy-matcher = "0.3.7"
+ indexmap = "2.8.0"
+ lazy_static = "1.2.0"
+ log = "0.4.27"
+-nix = { version = "0.29.0", default-features = false, features = ["fs"]}
++nix = { version = ">= 0.29.0", default-features = false, features = ["fs"]}
+ rand = "0.8.0"
+ rayon = "1.5.3"
+ regex = "1.6.0"
+
+--- a/skim-tuikit/src/input.rs
++++ b/skim-tuikit/src/input.rs
+@@ -53,16 +53,16 @@ impl KeyBoard {
+         let (rx, tx) = nix::unistd::pipe().expect("failed to set pipe");
+ 
+         // set the signal pipe to non-blocking mode
+-        let flag = fcntl(rx.as_raw_fd(), FcntlArg::F_GETFL).expect("Get fcntl failed");
++        let flag = fcntl(rx.as_fd(), FcntlArg::F_GETFL).expect("Get fcntl failed");
+         let mut flag = OFlag::from_bits_truncate(flag);
+         flag.insert(OFlag::O_NONBLOCK);
+-        let _ = fcntl(rx.as_raw_fd(), FcntlArg::F_SETFL(flag));
++        let _ = fcntl(rx.as_fd(), FcntlArg::F_SETFL(flag));
+ 
+         // set file to non-blocking mode
+-        let flag = fcntl(file.as_raw_fd(), FcntlArg::F_GETFL).expect("Get fcntl failed");
++        let flag = fcntl(file.as_fd(), FcntlArg::F_GETFL).expect("Get fcntl failed");
+         let mut flag = OFlag::from_bits_truncate(flag);
+         flag.insert(OFlag::O_NONBLOCK);
+-        let _ = fcntl(file.as_raw_fd(), FcntlArg::F_SETFL(flag));
++        let _ = fcntl(file.as_fd(), FcntlArg::F_SETFL(flag));
+ 
+         KeyBoard {
+             file,
+--- a/skim-tuikit/src/raw.rs
++++ b/skim-tuikit/src/raw.rs
+@@ -108,7 +108,7 @@ impl<W: Write + AsFd + AsRawFd> IntoRawM
+         use nix::errno::Errno::ENOTTY;
+         use nix::sys::termios::OutputFlags;
+ 
+-        let istty = isatty(self.as_raw_fd()).map_err(nix_err_to_io_err)?;
++        let istty = isatty(self.as_fd()).map_err(nix_err_to_io_err)?;
+         if !istty {
+             Err(nix_err_to_io_err(ENOTTY))?
+         }
+

@@ -1,0 +1,5 @@
+skim (0.20.5+ds-1) UNRELEASED; urgency=medium
+
+  * Initial release. (Closes: ##956078)
+
+ -- Matthias Geiger <werdahias@debian.org>  Tue, 14 Jan 2025 20:02:17 +0100

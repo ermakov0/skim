@@ -1,0 +1,39 @@
+Description: Downgrade dependency on rand to 0.8
+Author: Ermakov Alexander <ermakovav@altgtu.ru>
+Forwarded: not-needed
+Last-Update: 2025-10-27
+
+
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -30,7 +30,7 @@
+ lazy_static = "1.2.0"
+ log = "0.4.27"
+ nix = { version = "0.29.0", default-features = false, features = ["fs"]}
+-rand = "0.9.0"
++rand = "0.8.0"
+ rayon = "1.5.3"
+ regex = "1.6.0"
+ shell-quote = "0.7.2"
+
+--- a/skim/src/tmux.rs
++++ b/skim/src/tmux.rs
+@@ -9,7 +9,7 @@ use std::{
+ };
+ 
+ use nix::{sys::stat, unistd::mkfifo};
+-use rand::{Rng, distr::Alphanumeric};
++use rand::{Rng, distributions::Alphanumeric};
+ use skim_tuikit::key::Key;
+ use which::which;
+ 
+@@ -93,7 +93,7 @@ pub fn run_with(opts: &SkimOptions) -> O
+     // Create temp dir for downstream output
+     let temp_dir_name = format!(
+         "sk-tmux-{}",
+-        &rand::rng()
++        &rand::thread_rng()
+             .sample_iter(&Alphanumeric)
+             .take(8)
+             .map(char::from)
+

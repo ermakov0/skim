@@ -1,0 +1,8 @@
+Version: 5
+
+Source: https://github.com/skim-rs/skim/tags
+Dversionmangle: s/[~+](?:dfsg|ds)[0-9]*//g
+Repack: yes
+Repacksuffix: +ds
+Matching-Pattern: .*/v?(\d\S*)\.tar\.gz
+Filenamemangle: s/.+\/v?(\d\S*)\.tar\.gz/skim-$1\.tar\.gz/
