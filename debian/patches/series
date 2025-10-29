@@ -1,3 +1,5 @@
-rand-0.8.patch
-nix-0.30.patch
-relax-deps.diff
+0001-rand-0.8.patch
+0002-nix-0.30.patch
+0003-which-8.patch
+0004-relax-deps.patch
+0005-spelling.patch

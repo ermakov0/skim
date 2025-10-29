@@ -4,26 +4,57 @@ Upstream-Name: skim
 Upstream-Contact:
  Zhang Jinzhou <lotabout@gmail.com>
  Loric Andre
-Files-Excluded: .cargo/*  shell/completion.bash shell/completion.fish shell/completion.zsh
+Files-Excluded:
+ .cargo/*
+ shell/completion.bash
+ shell/completion.fish
+ shell/completion.zsh
 Comment: Excluded to not mess with our tooling; rebuild completions from source
 
 Files: *
 Copyright:
- 2019-2025 Zhang Jinzhou <lotabout@gmail.com>
- 2019-2025 Loric Andre
+ 2019-2025, Loric Andre
+ 2019-2025, Zhang Jinzhou <lotabout@gmail.com>
 License: MIT
 
-Files: bin/sk-tmux
- man/man1/sk-tmux.1
- shell/LICENSE
-Copyright: 2016, 2016 Jinzhou Zhang
-  2016,2017 Junegunn Choi
-License: Expat
+Files: man/man1/sk-tmux.1
+Copyright:
+ 2016-2019, Zhang Jinzhou <lotabout@gmail.com>
+ 2017, Junegunn Choi
+License: MIT
 
 Files: plugin/skim.vim
-Copyright: 2017 Junegunn Choi
-License: Expat
+Copyright: 2017, Junegunn Choi
+License: MIT
+
+Files: shell/*
+Copyright:
+ 2016, Zhang Jinzhou <lotabout@gmail.com>
+ 2016, Junegunn Choi
+License: MIT
 
 Files: debian/*
-Copyright: 2025 Matthias Geiger <werdahias@debian.org>
+Copyright:
+ 2025, Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
+ 2025, Matthias Geiger <werdahias@debian.org>
+ 2025, Ermakov Alexander <ermakovav@altgtu.ru>
 License: MIT
+
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.

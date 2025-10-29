@@ -1,47 +1,49 @@
 Source: skim
 Section: utils
 Priority: optional
-Maintainer: Matthias Geiger <werdahias@debian.org>
-Rules-Requires-Root: no
+Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
+Uploaders:
+ Matthias Geiger <werdahias@debian.org>,
+ Ermakov Alexander <ermakovav@altgtu.ru>
 Build-Depends:
  debhelper-compat (= 13),
- dh-shell-completions,
- dh-sequence-vim-addon,
  dh-cargo,
+ dh-sequence-vim-addon,
+ dh-shell-completions,
  cargo:native,
- rustc:native,
- libstd-rust-dev,
- librust-beef-0.5+default-dev (>= 0.5.2-~~),
- librust-bitflags-1+default-dev (>= 1.3.2-~~),
- librust-chrono-0.4+default-dev (>= 0.4.40-~~),
- librust-clap-4+cargo-dev (>= 4.5.0-~~),
- librust-clap-4+default-dev (>= 4.5.0-~~),
- librust-clap-4+derive-dev (>= 4.5.0-~~),
- librust-clap-4+unstable-markdown-dev (>= 4.5.0-~~),
- librust-clap-complete-4+default-dev (>= 4.5.0-~~),
- librust-crossbeam-0.8+default-dev (>= 0.8.2-~~),
- librust-defer-drop-1+default-dev (>= 1.3.0-~~),
- librust-derive-builder-0.20+default-dev (>= 0.20.0-~~),
- librust-env-logger-0.11+default-dev (>= 0.11.0-~~),
- librust-fuzzy-matcher-0.3+default-dev (>= 0.3.7-~~),
- librust-indexmap-2+default-dev (>= 2.8.0-~~),
- librust-log-0.4+default-dev (>= 0.4.27-~~),
- librust-nix+fs-dev (>= 0.29.0-~~),
+ librust-beef-0.5+default-dev,
+ librust-bitflags-1+default-dev,
+ librust-chrono-0.4+default-dev,
+ librust-clap-4+cargo-dev,
+ librust-clap-4+default-dev,
+ librust-clap-4+derive-dev,
+ librust-clap-4+unstable-markdown-dev,
+ librust-clap-complete-4+default-dev,
+ librust-crossbeam-0.8+default-dev,
+ librust-defer-drop-1+default-dev,
+ librust-derive-builder-0.20+default-dev,
+ librust-env-logger-0.11+default-dev,
+ librust-fuzzy-matcher-0.3+default-dev,
+ librust-indexmap-2+default-dev,
+ librust-lazy-static-1+default-dev,
+ librust-log-0.4+default-dev,
+ librust-nix-0.30+fs-dev,
+ librust-nix-0.30+poll-dev,
+ librust-nix-0.30+signal-dev,
+ librust-nix-0.30+term-dev,
  librust-rand-0.8+default-dev,
- librust-rayon-1+default-dev (>= 1.5.3-~~),
- librust-regex-1+default-dev (>= 1.6.0-~~),
- librust-shell-quote-0.7+default-dev (>= 0.7.2-~~),
- librust-shlex-1+default-dev (>= 1.1.0-~~),
- librust-time-0.3+default-dev (>= 0.3.39-~~),
- librust-timer-0.2+default-dev,
- librust-unicode-width-0.2+default-dev (>= 0.2.0-~~),
- librust-vte-0.15+default-dev,
- librust-which-8+default-dev (>= 8.0.0-~~),
- librust-lazy-static-1+default-dev (>= 1.2.0-~~),
- librust-nix+poll-dev (>= 0.29.0-~~),
- librust-nix+signal-dev (>= 0.29.0-~~),
- librust-nix+term-dev (>= 0.29.0-~~),
+ librust-rayon-1+default-dev,
+ librust-regex-1+default-dev,
+ librust-shell-quote-0.7+default-dev,
+ librust-shlex-1+default-dev,
  librust-term-0.7+default-dev,
+ librust-time-0.3+default-dev,
+ librust-timer-0.2+default-dev,
+ librust-unicode-width-0.2+default-dev,
+ librust-vte-0.15+default-dev,
+ librust-which-8+default-dev,
+ libstd-rust-dev,
+ rustc:native,
 Standards-Version: 4.7.2
 Homepage: https://github.com/skim-rs/skim
 Vcs-Git: https://salsa.debian.org/debian/skim.git
@@ -51,20 +53,34 @@ Package: skim
 Architecture: any
 Multi-Arch: foreign
 Depends:
- ${shlibs:Depends},
+ ${cargo:Depends},
  ${misc:Depends},
-Description: fast LaTeX formatter
- tex-fmt is a fast LaTeX formatter for .tex, .bib, .cls, and .sty files.
- It supports reading from stdin, checking files before formatting,
- printing to stdout and keeping long lines.
+ ${shlibs:Depends},
+Recommends:
+ ${cargo:Recommends},
+Suggests:
+ vim-skim,
+ ${cargo:Suggests},
+Provides:
+ ${cargo:Provides},
+Built-Using:
+ ${cargo:Built-Using},
+Description: Fuzzy Finder in rust!
+ It's a powerful fuzzy finder designed to make your workflow faster and more
+ efficient. Think of it as a smarter alternative to tools like grep.
+ .
+ This package provides a single executable called sk.
 
 Package: vim-skim
 Section: editors
 Architecture: all
 Depends:
- ${shlibs:Depends},
+ skim,
  ${misc:Depends},
+ ${shlibs:Depends},
  ${vim-addon:Depends},
- skim
-Description: grep
-
+Description: Fuzzy Finder in rust! (vim)
+ It's a powerful fuzzy finder designed to make your workflow faster and more
+ efficient. Think of it as a smarter alternative to tools like grep.
+ .
+ This package provides the skim plugin for vim.

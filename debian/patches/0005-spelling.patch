@@ -1,0 +1,18 @@
+Description: Spelling error
+Author: Ermakov Alexander <ermakovav@altgtu.ru>
+Forwarded: no
+Last-Update: 2025-10-29
+
+--- a/skim/src/options.rs
++++ b/skim/src/options.rs
+@@ -717,8 +717,8 @@ pub struct SkimOptions {
+     /// Preview command
+     ///
+     /// Execute the given command for the current line and display the result on the preview window. {} in the command
+-    /// is the placeholder that is replaced to the single-quoted string of the current line. To transform the replace‐
+-    /// ment string, specify field index expressions between the braces (See FIELD INDEX EXPRESSION for the details).
++    /// is the placeholder that is replaced to the single-quoted string of the current line. To transform the replacement
++    /// string, specify field index expressions between the braces (See FIELD INDEX EXPRESSION for the details).
+     ///
+     /// **Examples**:
+     ///

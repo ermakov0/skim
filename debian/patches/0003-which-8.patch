@@ -1,0 +1,13 @@
+Description: Update code for which 8
+Author: Ermakov Alexander <ermakovav@altgtu.ru>
+Forwarded: no
+Last-Update: 2025-10-29
+
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -41,4 +41,4 @@ time = "0.3.41"
+ timer = "0.2.0"
+ unicode-width = "0.2.1"
+ vte = "0.15.0"
+-which = "7.0.2"
++which = "8"
