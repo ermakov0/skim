@@ -40,7 +40,7 @@ A term can be prefixed by ^, or suffixed by $ to become an anchored\-match term.
 .PP
 Negation
 .PP
-If  a  term  is prefixed by !, sk will exclude the lines that satisfy the term from the result. In this case, sk per‐ forms exact match by default.
+If  a  term  is prefixed by !, sk will exclude the lines that satisfy the term from the result. In this case, sk performs exact match by default.
 .PP
 Exact\-match by default
 .PP
@@ -385,11 +385,11 @@ If the command contains parentheses, sk may fail to parse the expression. In tha
 
 \- execute:...
 
-This is the special form that frees you from parse errors as it does not expect the clos‐ ing character. The catch is that it should be the last one in the comma\-separated list of key\-action pairs.
+This is the special form that frees you from parse errors as it does not expect the closing character. The catch is that it should be the last one in the comma\-separated list of key\-action pairs.
 
-sk  switches  to  the  alternate screen when executing a command. However, if the command is ex‐ pected to complete quickly, and you are not interested in its output, you might want to use exe‐ cute\-silent instead, which silently executes the command without the  switching.  Note  that  sk will  not  be  responsive  until the command is complete. For asynchronous execution, start your command as a background process (i.e. appending &).
+sk  switches  to  the  alternate screen when executing a command. However, if the command is expected to complete quickly, and you are not interested in its output, you might want to use execute\-silent instead, which silently executes the command without the  switching.  Note  that  sk will  not  be  responsive  until the command is complete. For asynchronous execution, start your command as a background process (i.e. appending &).
 
-With if\-query\-empty and if\-query\-not\-empty action, you could specify the action to  execute  de‐ pends on the query condition. For example:
+With if\-query\-empty and if\-query\-not\-empty action, you could specify the action to  execute  depends on the query condition. For example:
 
 sk \-\-bind \*(Aqctrl\-d:if\-query\-empty(abort)+delete\-char\*(Aq
 
@@ -486,7 +486,7 @@ Do not clear previous line if the command returns an empty result
 
 Do not clear previous items if new command returns empty result. This might be useful  to reduce flickering when typing new commands and the half\-complete commands are not valid.
 
-This is not the default behavior because similar use cases for grep and rg have already been op‐ timized where empty query results actually mean "empty" and previous results should be cleared.
+This is not the default behavior because similar use cases for grep and rg have already been optimized where empty query results actually mean "empty" and previous results should be cleared.
 .TP
 \fB\-\-no\-clear\-start\fR
 Do not clear items on start
@@ -628,7 +628,7 @@ Maximum number of query history entries to keep
 \fB\-\-preview\fR \fI<PREVIEW>\fR
 Preview command
 
-Execute the given command for the current line and display the result on the preview window. {} in the command is the placeholder that is replaced to the single\-quoted string of the current line. To transform the replace‐ ment string, specify field index expressions between the braces (See FIELD INDEX EXPRESSION for the details).
+Execute the given command for the current line and display the result on the preview window. {} in the command is the placeholder that is replaced to the single\-quoted string of the current line. To transform the replacement string, specify field index expressions between the braces (See FIELD INDEX EXPRESSION for the details).
 
 Examples:
 
@@ -648,7 +648,7 @@ Note that you can escape a placeholder pattern by prepending a backslash.
 
 Also, {q}  is replaced to the current query string. {cq} is replaced to the current command query string. {n} is replaced to zero\-based ordinal index of the line. Use {+n} if you want all index numbers when multiple lines are selected
 
-Preview window will be updated even when there is no match for the current query if any of the placeholder ex‐ pressions evaluates to a non\-empty string.
+Preview window will be updated even when there is no match for the current query if any of the placeholder expressions evaluates to a non\-empty string.
 .TP
 \fB\-\-preview\-window\fR \fI<PREVIEW_WINDOW>\fR [default: right:50%]
 Preview window layout
@@ -659,7 +659,7 @@ Determine  the  layout of the preview window. If the argument ends with: hidden,
 
 If size is given as 0, preview window will not be visible, but sk will still execute the command in the background.
 
-+SCROLL[\-OFFSET] determines the initial scroll offset of the preview window. SCROLL can be either a  numeric  integer or  a  single\-field index expression that refers to a numeric integer. The optional \-OFFSET part is for adjusting the base offset so that you can see the text above it. It should be given as a numeric integer (\-INTEGER), or as a denom‐ inator form (\-/INTEGER) for specifying a fraction of the preview window height.
++SCROLL[\-OFFSET] determines the initial scroll offset of the preview window. SCROLL can be either a  numeric  integer or  a  single\-field index expression that refers to a numeric integer. The optional \-OFFSET part is for adjusting the base offset so that you can see the text above it. It should be given as a numeric integer (\-INTEGER), or as a denominator form (\-/INTEGER) for specifying a fraction of the preview window height.
 
 Examples:
 

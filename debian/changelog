@@ -1,8 +1,8 @@
-skim (0.20.5-1) unstable; urgency=medium
+skim (0.20.5+ds-1) unstable; urgency=medium
 
   * Initial release. (Closes: #956078)
 
- -- Ermakov Alexander <ermakovav@altgtu.ru>  Wed, 29 Oct 2025 10:22:02 +0700
+ -- Ermakov Alexander <ermakovav@altgtu.ru>  Wed, 29 Oct 2025 11:17:13 +0700
 
 skim (0.20.5+ds-0) UNRELEASED; urgency=medium
 

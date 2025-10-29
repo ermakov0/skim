@@ -1,0 +1,27 @@
+Description: Fix path for interpreter
+Author: Ermakov Alexander <ermakovav@altgtu.ru>
+Forwarded: no
+Last-Update: 2025-10-29
+
+--- a/shell/key-bindings.bash
++++ b/shell/key-bindings.bash
+@@ -1,3 +1,4 @@
++#!/usr/bin/env bash
+ # - $SKIM_TMUX_OPTS
+ # - $SKIM_CTRL_T_COMMAND
+ # - $SKIM_CTRL_T_OPTS
+--- a/shell/key-bindings.fish
++++ b/shell/key-bindings.fish
+@@ -1,4 +1,4 @@
+-#!/bin/fish
++#!/usr/bin/env fish
+ # - $SKIM_TMUX_OPTS
+ # - $SKIM_CTRL_T_COMMAND
+ # - $SKIM_CTRL_T_OPTS
+--- a/shell/key-bindings.zsh
++++ b/shell/key-bindings.zsh
+@@ -1,3 +1,4 @@
++#!/usr/bin/env zsh
+ #     ____      ____
+ #    / __/___  / __/
+ #   / /_/_  / / /_
